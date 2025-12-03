@@ -9,7 +9,7 @@ export default async function WalletPage() {
   ]);
 
   if (!balance?.success || !transanctions?.success) {
-    return <div>Erro ao carregar dados da carteira.</div>;
+    throw new Error('Erro ao carregar dados da carteira.');
   }
 
   return (
