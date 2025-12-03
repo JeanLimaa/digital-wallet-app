@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Gerencie suas finanças de forma simples e segura",
 };
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ['latin'],
 });
 

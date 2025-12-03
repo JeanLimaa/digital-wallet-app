@@ -1,7 +1,11 @@
-"use server';"
+"use server'";
 import axios, { AxiosError } from 'axios';
 import { revalidatePath } from 'next/cache';
 import { getTokenCookie } from './auth';
+
+interface ApiErrorData {
+    message?: string | string[];
+}
 
 export type ApiResponse<T> = {
     success?: T;
@@ -38,7 +42,7 @@ export async function apiSafeCall<T>(
 
         return { success: data };
     } catch (err) {
-        const error = err as AxiosError<any>;
+        const error = err as AxiosError<ApiErrorData>;
         const message =
             Array.isArray(error.response?.data?.message)
                 ? error.response?.data?.message[0]

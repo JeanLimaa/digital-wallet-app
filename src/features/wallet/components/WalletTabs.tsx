@@ -23,7 +23,7 @@ export function WalletTabs(props: WalletTabsProps) {
     const [tab, setTab] = useState<'deposit' | 'transfer'>('deposit');
 
     return (
-        <Tabs value={tab} onValueChange={(v) => setTab(v as any)} className="space-y-4">
+        <Tabs value={tab} onValueChange={(v) => setTab(v as 'deposit' | 'transfer')} className="space-y-4">
             <TabsList className="grid grid-cols-2 w-full">
                 <TabsTrigger value="deposit">Depositar</TabsTrigger>
                 <TabsTrigger value="transfer">Transferir</TabsTrigger>
